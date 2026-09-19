@@ -235,6 +235,9 @@ if check_password():
     user_name = st.session_state.user_name
     username = st.session_state.username
 
+    # 📌 عرض الشعار هنا في أعلى القائمة الجانبية
+    st.sidebar.image("logo.jpg", width=120)
+
     st.sidebar.title("🛡️ Sliman Clinic OS")
     st.sidebar.write(f"👤 الموظف: **{user_name}**")
     st.sidebar.caption(f"🔒 الصلاحية: **{role}** (`{username}`)")
@@ -489,7 +492,7 @@ if check_password():
         else:
             st.info("لا توجد مواعيد مجدولة لهذا اليوم.")
 
-    # 5️⃣ باقي الصفحات (الربحية، خريطة الجسد، SOAP Notes، تسجيل الحضور)
+    # 5️⃣ باقي الصفحات
     elif page in ["💰 تحليل الربحية المباشرة COGS", "🗺️ خريطة الجسد والنقاط الذكية (Body Pins)", "📑 الملاحظات الطبية القياسية (SOAP Notes)", "📝 تسجيل الحضور والحجز بملف موحد", "👥 دليل ملفات المتعالجين"]:
         st.title(f"📍 {page}")
         st.info("قسم فعال ومربوط بالسجل الأمني وقاعدة البيانات الشاملة للعيادة.")
