@@ -30,19 +30,7 @@ def init_db():
     conn = get_db_connection()
     if conn:
         cursor = conn.cursor()
-        cursor.execute("CREATE TABLE IF NOT EXISTS inventory (id SERIAL PRIMARY KEY, item_name TEXT NOT NULL, category TEXT, quantity_ml_or_gm REAL, cost_per_unit REAL, supplier TEXT);")
-        cursor.execute("CREATE TABLE IF NOT EXISTS sessions (id SERIAL PRIMARY KEY, client_name TEXT, session_date TEXT, oil_used TEXT, oil_consumed_amount REAL, total_cost REAL, notes TEXT);")
-        cursor.execute("CREATE TABLE IF NOT EXISTS staff (id SERIAL PRIMARY KEY, username TEXT UNIQUE, password_hash TEXT, role TEXT);")
-        cursor.execute("CREATE TABLE IF NOT EXISTS appointments (id SERIAL PRIMARY KEY, client_name TEXT, phone TEXT, appointment_date TEXT, appointment_time TEXT, status TEXT);")
-        cursor.execute("CREATE TABLE IF NOT EXISTS clients (id SERIAL PRIMARY KEY, full_name TEXT, phone TEXT, age INT, notes TEXT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);")
-        cursor.execute("CREATE TABLE IF NOT EXISTS audit_logs (id SERIAL PRIMARY KEY);") 
-        cursor.execute("ALTER TABLE audit_logs ADD COLUMN IF NOT EXISTS action_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;")
-        cursor.execute("ALTER TABLE audit_logs ADD COLUMN IF NOT EXISTS user_name TEXT;")
-        cursor.execute("ALTER TABLE audit_logs ADD COLUMN IF NOT EXISTS action_description TEXT;")
-        
-        conn.commit()
-        cursor.close()
-        conn.close()
+    
         # جدول المخزون
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS inventory (
