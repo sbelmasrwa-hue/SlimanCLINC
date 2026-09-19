@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import bcrypt
+import psycopg2
 from datetime import datetime
 
 # --- إعداد الصفحة والشعار ---
